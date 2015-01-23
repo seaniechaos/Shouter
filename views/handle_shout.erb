@@ -1,0 +1,28 @@
+<html>
+ <body>
+   <p>
+     <h2>Shouts of <% = @user.handle %></h2>
+   </p>
+<table>
+   <form action="/" method="get">
+<tr><th><label>Your Password, Baby</label></th>
+     <td><input name="password" /></td></tr>
+<tr><th><label>Your Shout...</label></th>
+     <td><input name="shout" size="200" /></td></tr>
+     <tr><th><input type="submit" /></th></tr>
+   </form>
+</table><tr>
+<td>form action="/home" method="get"><button type="submit">Handles</button></form>
+   <% if @a_message %>
+         <h2><%= @a_message.to_s %></h2>
+   <% end %>
+<table><tr><th>Name</th><th>Handle</th><th>Message</th><th>Time</th></tr>
+
+   <% if @shoutlist.any? %>
+       <% @shoutlist.each do |sh| %>
+         <%= '<tr><td>' + sh[0] + '</th><td>' + sh[1] + '</td><td>' + sh[2] + '</td><td>' + sh[3] + '</td></tr>'  %>
+       <% end %>
+   <% end %>
+   </table>
+ </body>
+</html>
